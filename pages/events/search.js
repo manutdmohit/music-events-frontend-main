@@ -34,7 +34,10 @@ export default function SearchPage({ events }) {
       <h1>Search Results for {router.query.term}</h1>
 
       {events.length === 0 && (
-        <h3>The event you are searching could not be found.</h3>
+        <h3>
+          The event you are searching could not be found. Please try again with
+          correct query.
+        </h3>
       )}
 
       {events.map((evt) => (
