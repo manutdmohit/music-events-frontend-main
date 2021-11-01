@@ -171,12 +171,16 @@ export default function SlugPage({ evt }) {
         </div>
 
         <span>
-          {evt.date.slice(0,10)} at {evt.time}
+          {evt.date.slice(0, 10)} at {evt.time}
         </span>
         <h1>{evt.name}</h1>
         {evt.image && (
           <div className={styles.image}>
-            <Image src={evt.image.formats.medium.url} width={960} height={600} />
+            <Image
+              src={evt.image.formats.medium.url}
+              width={960}
+              height={600}
+            />
           </div>
         )}
 
