@@ -32,7 +32,7 @@ export default function Modal({ show, onClose, children, title }) {
       modalContent,
       document.getElementById('modal-root')
     );
-  } else {
+  } else {  
     return null;
   }
 }
