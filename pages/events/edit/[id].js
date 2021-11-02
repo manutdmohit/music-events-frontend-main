@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
+import ImageUpload from '@/components/ImageUpload';
 import Modal from '@/components/Modal';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Form.module.css';
@@ -82,9 +83,16 @@ export default function EditEventPage({ evt }) {
     setValues({ ...values, [name]: value });
   };
 
+  const imageUploaded = async (e) => {
+    const res = await fetch(`${API_URL}/events/${evt.id}`);
+    const data = await res.json();
+    setImagePreview(data.image.formats.thumbnail.url);
+    setShowModal(false);
+  };
+
   return (
     <Layout title="Edit Event">
-      <Link href={`/events/${evt.slug}`}>Go Back</Link>
+      <Link href="/events">Go Back</Link>
       <h1>Edit Event</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -181,7 +189,7 @@ export default function EditEventPage({ evt }) {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        Image Upload
+        <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
       </Modal>
     </Layout>
   );
