@@ -20,6 +20,10 @@
   font-size: 18px;
 }
 
+.auth input::placeholder {
+  font-size: 1rem;
+}
+
 .auth input[type='submit'] {
   margin-top: 20px;
   width: 100%;
