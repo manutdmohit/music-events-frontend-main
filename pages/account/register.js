@@ -17,7 +17,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error('Password and Confirm Password do not match', {
+      toast.error('Passwords do not match', {
         autoClose: 2000,
       });
       return;
@@ -40,7 +40,7 @@ export default function RegisterPage() {
               type="text"
               id="username"
               value={username}
-              placeholder="Enter Your Username"
+              placeholder="Enter Username"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -50,7 +50,7 @@ export default function RegisterPage() {
               type="email"
               id="email"
               value={email}
-              placeholder="Enter Your Email"
+              placeholder="Enter Email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -60,7 +60,7 @@ export default function RegisterPage() {
               type="password"
               id="password"
               value={password}
-              placeholder="Enter Your Password"
+              placeholder="Enter Password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -70,7 +70,7 @@ export default function RegisterPage() {
               type="password"
               id="confirmPassword"
               value={confirmPassword}
-              placeholder="Enter Your Password"
+              placeholder="Enter Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
