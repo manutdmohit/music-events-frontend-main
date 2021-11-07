@@ -16,6 +16,8 @@ export default function RegisterPage() {
 
   const { register, error } = useContext(AuthContext);
 
+  useEffect(() => error && toast.error(error, { autoClose: 2000 }));
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
