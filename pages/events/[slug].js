@@ -2,6 +2,7 @@ import Link from 'next/link';
 import router, { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
+import EventMap from '@/components/EventMap';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Event.module.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -65,6 +66,8 @@ export default function SlugPage({ evt }) {
         <p>{evt.description}</p>
         <h3>Venue: {evt.vennue}</h3>
         <p>{evt.address}</p>
+
+        <EventMap evt={evt}/>
 
         <Link href="/events">
           <a className={styles.back}>{'<'}Go Back</a>
