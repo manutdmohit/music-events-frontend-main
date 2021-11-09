@@ -1,6 +1,6 @@
 const { events } = require('./data.json');
 
-export default (req, res) => {
+export default function (req, res) {
   const evt = events.filter((ev) => ev.slug === req.query.slug);
 
   if (req.method === 'GET') {

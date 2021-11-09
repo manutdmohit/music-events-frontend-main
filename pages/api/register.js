@@ -1,6 +1,6 @@
 import { API_URL } from '@/config/index';
 
-export default async function (req, res) {
+export default async  (req, res)=> {
   if (req.method === 'POST') {
     const { username, email, password } = req.body;
 
