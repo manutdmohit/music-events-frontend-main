@@ -6,7 +6,7 @@ import styles from '@/styles/Modal.module.css';
 export default function Modal({ show, onClose, children, title }) {
   const [isBrowser, setIsBrowser] = useState(false);
 
-  useEffect(() => setIsBrowser(true));
+  useEffect(() => setIsBrowser(true), []);
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default function Modal({ show, onClose, children, title }) {
       modalContent,
       document.getElementById('modal-root')
     );
-  } else {  
+  } else {
     return null;
   }
 }

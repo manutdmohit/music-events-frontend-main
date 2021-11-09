@@ -1,6 +1,6 @@
 import cookie from 'cookie';
 
-export default async (req, res) => {
+export default async function (req, res) {
   if (req.method === 'POST') {
     // Destroy cookie
     res.setHeader(
@@ -18,4 +18,4 @@ export default async (req, res) => {
     res.setHeader('Allow', ['POST']);
     res.status(405).json({ message: `Method ${req.method} not allowed` });
   }
-};
+}

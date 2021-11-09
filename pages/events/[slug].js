@@ -56,6 +56,7 @@ export default function SlugPage({ evt }) {
               src={evt.image.formats.medium.url}
               width={960}
               height={600}
+              alt={evt.name}
             />
           </div>
         )}
