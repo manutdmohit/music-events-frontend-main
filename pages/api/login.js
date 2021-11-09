@@ -1,7 +1,7 @@
 import cookie from 'cookie';
 import { API_URL } from '@/config/index';
 
-export default async  (req, res)=> {
+export default async (req, res) => {
   if (req.method === 'POST') {
     const { identifier, password } = req.body;
 
@@ -9,6 +9,7 @@ export default async  (req, res)=> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         identifier,
