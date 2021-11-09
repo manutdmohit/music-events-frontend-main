@@ -1,4 +1,3 @@
-import { FaPencilAlt, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import router, { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -40,36 +39,9 @@ export async function getStaticProps({ params: { slug } }) {
 // }
 
 export default function SlugPage({ evt }) {
-  const deleteEvent = async () => {
-    if (confirm('Are You Sure?')) {
-      const res = await fetch(`${API_URL}/events/${evt.id}`, {
-        method: 'DELETE',
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message);
-      } else {
-        router.push('/events');
-      }
-    }
-  };
-
   return (
     <Layout>
       <div className={styles.event}>
-        <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
-            <a>
-              <FaPencilAlt /> Edit Event
-            </a>
-          </Link>
-          <a href="#" className={styles.delete} onClick={deleteEvent}>
-            <FaTimes /> Delete Event
-          </a>
-        </div>
-
         <span>
           {evt.date.slice(0, 10)} at {evt.time}
         </span>
