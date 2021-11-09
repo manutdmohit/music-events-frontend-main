@@ -1,43 +1,43 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
-import router, { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
 import EventMap from '@/components/EventMap';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Event.module.css';
-import { toast, ToastContainer } from 'react-toastify';
 
-export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/events`);
+// export async function getStaticPaths() {
+//   const res = await fetch(`${API_URL}/events`);
 
-  const events = await res.json();
+//   const events = await res.json();
 
-  const paths = events.map((evt) => ({ params: { slug: evt.slug } }));
+//   const paths = events.map((evt) => ({ params: { slug: evt.slug } }));
 
-  return {
-    paths,
-    fallback: true,
-  };
-}
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//   const res = await fetch(`${API_URL}/events?slug=${slug}`);
+//   const evt = await res.json();
+
+//   return {
+//     props: { evt: evt[0] },
+//     revalidate: 1,
+//   };
+// }
+
+export async function getServerSideProps({ query: { slug } }) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`);
   const evt = await res.json();
 
   return {
     props: { evt: evt[0] },
-    revalidate: 1,
   };
 }
-
-// export async function getServerSideProps({ query: { slug } }) {
-//   const res = await fetch(`${API_URL}/api/events/${slug}`);
-//   const evt = await res.json();
-
-//   return {
-//     props: { evt: evt[0] },
-//   };
-// }
 
 export default function SlugPage({ evt }) {
   return (
@@ -67,7 +67,7 @@ export default function SlugPage({ evt }) {
         <h3>Venue: {evt.vennue}</h3>
         <p>{evt.address}</p>
 
-        <EventMap evt={evt}/>
+        <EventMap evt={evt} />
 
         <Link href="/events">
           <a className={styles.back}>{'<'}Go Back</a>
