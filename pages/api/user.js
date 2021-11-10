@@ -14,7 +14,6 @@ export default async (req, res) => {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
-        'Access-Control-Allow-Origin': '*',
       },
     });
 
