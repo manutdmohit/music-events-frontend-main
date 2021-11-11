@@ -30,7 +30,7 @@ export default function EventMap({ evt }) {
         console.error(error);
       }
     );
-  }, [evt.address,viewport]);
+  }, []);
 
   Geocode.setApiKey(process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY);
 
@@ -43,7 +43,7 @@ export default function EventMap({ evt }) {
       onViewportChange={(vp) => setViewport(vp)}
     >
       <Marker key={evt.id} latitude={lat} longitude={lng}>
-        <Image src="/images/pin.svg" width={30} height={30}/>
+        <Image src="/images/pin.svg" width={30} height={30} />
       </Marker>
     </ReactMapGl>
   );
